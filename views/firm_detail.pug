@@ -1,0 +1,24 @@
+extends layout
+
+block content
+
+  h1 Firm: #{firm.name}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Companys
+    
+    dl
+    each company in firm_companys
+      dt 
+        a(href=company.url) #{company.title}
+      dd #{company.summary}
+
+    else
+      p This firm has no companys.
+      
+  hr
+  p
+    a(href=firm.url+'/delete') Delete firm
+  p
+    a(href=firm.url+'/update') Update firm

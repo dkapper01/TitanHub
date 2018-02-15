@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  
+  ul
+  each person in person_list
+    li 
+      a(href=person.url) #{person.name} 
+      //| (#{person.lifespan})
+
+  else
+    li There are no persons.

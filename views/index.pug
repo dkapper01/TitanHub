@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  //h1= title
+  //p Welcome to #[em LocalLibrary], a very basic Express website developed as a tutorial example on the Mozilla Developer Network.
+
+
+  //h1 Dynamic content
+
+  if error
+    //p Error getting dynamic content.
+  else
+
+    //p TitanHub has the following record counts:
+
+    ul
+      li #[strong Companys:] !{data.company_count}
+      //li #[strong Copies:] !{data.company_instance_count}
+      //li #[strong Copies available:] !{data.company_instance_available_count} 
+      li #[strong Persons:] !{data.person_count}
+      li #[strong Firms:] !{data.firm_count}

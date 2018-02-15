@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1="Add New Executive"
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='first_name') Full Executive Name:
+      input#first_name.form-control(type='text', placeholder='' name='first_name' required='true' value=(undefined===person ? '' : person.first_name) )
+      label(for='portfolio_company') Portfolio Company Name:
+      input#portfolio_company.form-control(type='text', placeholder='' name='portfolio_company' required='true' value=(undefined===person ? '' : person.portfolio_company))
+    div.form-group
+      label(for='portfolio_investment_date') Portfolio Investment Date:
+      input#portfolio_investment_date.form-control(type='date', name='portfolio_investment_date' value=(undefined===person ? '' : person.portfolio_investment_date_yyyy_mm_dd) )
+    div.form-group
+      label(for='date_of_death') Executive Start Date:
+      input#date_of_death.form-control(type='date', name='date_of_death' value=(undefined===person ? '' : person.date_of_death_yyyy_mm_dd) )
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

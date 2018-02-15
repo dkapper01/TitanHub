@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+  h1 #{person.name}
+  p #{person.lifespan}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    //h4 Companys
+    
+    dl
+    each company in person_companys
+      dt 
+        a(href=company.url) #{company.title}
+      dd #{company.summary}
+
+    else
+      //p This person has no companys.
+      
+  hr
+  p
+    a(href=person.url+'/delete') Delete person
+  p
+    a(href=person.url+'/update') Update person

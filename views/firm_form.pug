@@ -1,0 +1,16 @@
+extends layout
+
+block content
+
+  //h1 #{title}
+  h1="Add New Firm"
+  form(method='POST' action='')
+    div.form-group
+      label(for='name') Firm:
+      input#name.form-control(type='text', placeholder='PE, VS, Stock Leaders' name='name' required='true' value=(undefined===firm ? '' : firm.name) )
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

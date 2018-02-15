@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  h1="Add New Company"
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='title') Company Name:
+      input#title.form-control(type='text', placeholder='' name='title' required='true' value=(undefined===company ? '' : company.title) )
+    div.form-group
+      label(for='person') Firm:
+      select#person.form-control(type='select', placeholder='Select person' name='person' required='true' )
+        for person in persons
+          if company
+            option(value=person._id selected=(person._id.toString()===company.person._id.toString() ? 'selected' : false) ) #{person.name}
+          else
+            option(value=person._id) #{person.name}
+    div.form-group
+      label(for='summary') TH URL:
+      input#summary.form-control(type='textarea', placeholder='' name='summary' value=(undefined===company ? '' : company.summary) required='true')
+    //div.form-group
+    //  label(for='isbn') ISBN:
+    //  input#isbn.form-control(type='text', placeholder='ISBN13' name='isbn' value=(undefined===company ? '' : company.isbn) required='true')
+    //div.form-group
+    //  label Firm:
+    //  div
+    //    for firm in firms
+    //      div(style='display: inline; padding-right:10px;')
+    //        input.checkbox-input(type='checkbox', name='firm', id=firm._id, value=firm._id, checked=firm.checked )
+    //        label(for=firm._id) #{firm.name}
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg
