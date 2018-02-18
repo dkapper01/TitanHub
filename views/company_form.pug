@@ -3,7 +3,7 @@ extends layout
 block content
   h1="Add New Company"
 
-  form(method='POST' action='')
+  form(class='form-style')(method='POST' action='')
     div.form-group
       label(for='title') Company Name:
       input#title.form-control(type='text', placeholder='' name='title' required='true' value=(undefined===company ? '' : company.title) )

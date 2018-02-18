@@ -4,7 +4,7 @@ block content
 
   //h1 #{title}
   h1="Add New Firm"
-  form(method='POST' action='')
+  form(class='form-style')(method='POST' action='')
     div.form-group
       label(for='name') Firm:
       input#name.form-control(type='text', placeholder='PE, VS, Stock Leaders' name='name' required='true' value=(undefined===firm ? '' : firm.name) )

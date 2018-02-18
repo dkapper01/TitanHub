@@ -36,22 +36,22 @@ html
             .row
                 .col-sm-3.col-md-2.sidebar
                     ul.nav.nav-sidebar
-                        li.active
+                        li(class=title=='Firm List'?'active':undefined)
                             a(href='/catalog/firms/')
                                 | All Firms
                                 span.sr-only (current)
-                        li
+                        li(class=title=='Company List'?'active':undefined)
                             a(href='/catalog/companys/') All Companies
-                        li
+                        li(class=title=='List of Executives'?'active':undefined)
                             a(href='/catalog/persons') All Executives
                         //li
                             //a(href='#') Export
                     ul.nav.nav-sidebar
-                        li
+                        li(class=title=='Create Firm'?'active':undefined)
                             a(href='/catalog/firm/create') New Firm
-                        li
+                        li(class=title=='Create Company'?'active':undefined)
                             a(href='/catalog/company/create/') New Company
-                        li
+                        li(class=title=='Add New Executive'?'active':undefined)
                             a(href='/catalog/person/create') New Executive
                     //    li
                     //        a(href='') Another nav item

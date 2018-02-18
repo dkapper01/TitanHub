@@ -5,9 +5,12 @@
 .header-in-center {
     text-align: center;
 }
-.form-background-color {
+.form-style {
     background-color: whitesmoke;
     padding: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
 }
 /*.one {*/
     /*background-color: #377bb5;*/
