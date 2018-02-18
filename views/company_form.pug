@@ -12,7 +12,7 @@ block content
       select#person.form-control(type='select', placeholder='Select person' name='person' required='true' )
         for person in persons
           if company
-            option(value=person._id selected=(person._id.toString()===company.person._id.toString() ? 'selected' : false) ) #{person.name}
+            //option(value=person._id selected=(person._id.toString()===company.person._id.toString() ? 'selected' : false) ) #{person.name}
           else
             option(value=person._id) #{person.name}
     div.form-group

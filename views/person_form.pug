@@ -1,9 +1,9 @@
 extends layout
 
 block content
-  h1="Add New Executive"
+  h3(class='header-in-center')="Add New Executive"
 
-  form(method='POST' action='')
+  form(class='form-background-color default')(method='POST' action='')
     div.form-group
       label(for='first_name') Full Executive Name:
       input#first_name.form-control(type='text', placeholder='' name='first_name' required='true' value=(undefined===person ? '' : person.first_name) )
