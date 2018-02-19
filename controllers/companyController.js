@@ -14,12 +14,12 @@ exports.index = function(req, res) {
         company_count: function(callback) {
             Company.count(callback);
         },
-        company_instance_count: function(callback) {
-            CompanyInstance.count(callback);
-        },
-        company_instance_available_count: function(callback) {
-            CompanyInstance.count({status:'Available'},callback);
-        },
+        // company_instance_count: function(callback) {
+        //     CompanyInstance.count(callback);
+        // },
+        // company_instance_available_count: function(callback) {
+        //     CompanyInstance.count({status:'Available'},callback);
+        // },
         person_count: function(callback) {
             Person.count(callback);
         },
@@ -27,7 +27,7 @@ exports.index = function(req, res) {
             Firm.count(callback);
         },
     }, function(err, results) {
-        res.render('index', { title: 'Local Library Home', error: err, data: results });
+        res.render('index', { title: 'Dashboard', error: err, data: results });
     });
 };
 
@@ -56,11 +56,6 @@ exports.company_detail = function(req, res, next) {
               .populate('firm')
               .exec(callback);
         },
-        company_instance: function(callback) {
-
-          CompanyInstance.find({ 'company': req.params.id })
-          .exec(callback);
-        },
     }, function(err, results) {
         if (err) { return next(err); }
         if (results.company==null) { // No results.
@@ -69,7 +64,7 @@ exports.company_detail = function(req, res, next) {
             return next(err);
         }
         // Successful, so render.
-        res.render('company_detail', { title: 'Title', company:  results.company, company_instances: results.company_instance } );
+        res.render('company_detail', { title: 'Title', company:  results.company } );
     });
 
 };
@@ -79,9 +74,9 @@ exports.company_create_get = function(req, res, next) {
 
     // Get all persons and firms, which we can use for adding to our company.
     async.parallel({
-        persons: function(callback) {
-            Person.find(callback);
-        },
+        // persons: function(callback) {
+        //     Person.find(callback);
+        // },
         firms: function(callback) {
             Firm.find(callback);
         },
@@ -107,7 +102,7 @@ exports.company_create_post = [
 
     // Validate fields.
     body('title', 'Title must not be empty.').isLength({ min: 1 }).trim(),
-    body('person', 'Person must not be empty.').isLength({ min: 1 }).trim(),
+    // body('person', 'Person must not be empty.').isLength({ min: 1 }).trim(),
     body('summary', 'Summary must not be empty.').isLength({ min: 1 }).trim(),
     body('isbn', 'ISBN must not be empty').isLength({ min: 1 }).trim(),
   
@@ -174,16 +169,13 @@ exports.company_delete_get = function(req, res, next) {
         company: function(callback) {
             Company.findById(req.params.id).populate('person').populate('firm').exec(callback);
         },
-        company_companyinstances: function(callback) {
-            CompanyInstance.find({ 'company': req.params.id }).exec(callback);
-        },
     }, function(err, results) {
         if (err) { return next(err); }
         if (results.company==null) { // No results.
             res.redirect('/catalog/companys');
         }
         // Successful, so render.
-        res.render('company_delete', { title: 'Delete Company', company: results.company, company_instances: results.company_companyinstances } );
+        res.render('company_delete', { title: 'Delete Company', company: results.company } );
     });
 
 };
@@ -197,17 +189,9 @@ exports.company_delete_post = function(req, res, next) {
         company: function(callback) {
             Company.findById(req.params.id).populate('person').populate('firm').exec(callback);
         },
-        company_companyinstances: function(callback) {
-            CompanyInstance.find({ 'company': req.params.id }).exec(callback);
-        },
     }, function(err, results) {
         if (err) { return next(err); }
         // Success
-        if (results.company_companyinstances.length > 0) {
-            // Company has company_instances. Render in same way as for GET route.
-            res.render('company_delete', { title: 'Delete Company', company: results.company, company_instances: results.company_companyinstances } );
-            return;
-        }
         else {
             // Company has no CompanyInstance objects. Delete object and redirect to the list of companys.
             Company.findByIdAndRemove(req.body.id, function deleteCompany(err) {
@@ -273,7 +257,7 @@ exports.company_update_post = [
    
     // Validate fields.
     body('title', 'Title must not be empty.').isLength({ min: 1 }).trim(),
-    body('person', 'Person must not be empty.').isLength({ min: 1 }).trim(),
+    // body('person', 'Person must not be empty.').isLength({ min: 1 }).trim(),
     body('summary', 'Summary must not be empty.').isLength({ min: 1 }).trim(),
     body('isbn', 'ISBN must not be empty').isLength({ min: 1 }).trim(),
 

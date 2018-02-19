@@ -52,7 +52,7 @@ exports.person_create_get = function (req, res, next) {
 exports.person_create_post = [
 
     // Validate fields.
-    body('first_name').isLength({ min: 5 }).trim().withMessage('First name must be specified.'),
+    body('full_name').isLength({ min: 5 }).trim().withMessage('First name must be specified.'),
         // .isAlphanumeric().withMessage('First name has non-alphanumeric characters.'),
     body('portfolio_company').isLength({ min: 1 }).trim().withMessage('Family name must be specified.'),
         // .isAlphanumeric().withMessage('Family name has non-alphanumeric characters.'),
@@ -60,7 +60,7 @@ exports.person_create_post = [
     body('executive_start_date', 'Invalid date of death').optional({ checkFalsy: true }).isISO8601(),
 
     // Sanitize fields.
-    sanitizeBody('first_name').trim().escape(),
+    sanitizeBody('full_name').trim().escape(),
     sanitizeBody('portfolio_company').trim().escape(),
     sanitizeBody('portfolio_investment_date').toDate(),
     sanitizeBody('executive_start_date').toDate(),
@@ -82,7 +82,7 @@ exports.person_create_post = [
             // Create an Person object with escaped and trimmed data.
             var person = new Person(
                 {
-                    first_name: req.body.first_name,
+                    full_name: req.body.full_name,
                     portfolio_company: req.body.portfolio_company,
                     portfolio_investment_date: req.body.portfolio_investment_date,
                     executive_start_date: req.body.executive_start_date
@@ -170,7 +170,7 @@ exports.person_update_get = function (req, res, next) {
 exports.person_update_post = [
 
     // Validate fields.
-    body('first_name').isLength({ min: 1 }).trim().withMessage('First name must be specified.'),
+    body('full_name').isLength({ min: 1 }).trim().withMessage('First name must be specified.'),
         // .isAlphanumeric().withMessage('First name has non-alphanumeric characters.'),
     body('portfolio_company').isLength({ min: 1 }).trim().withMessage('Family name must be specified.'),
         // .isAlphanumeric().withMessage('Family name has non-alphanumeric characters.'),
@@ -178,7 +178,7 @@ exports.person_update_post = [
     body('executive_start_date', 'Invalid date of death').optional({ checkFalsy: true }).isISO8601(),
 
     // Sanitize fields.
-    sanitizeBody('first_name').trim().escape(),
+    sanitizeBody('full_name').trim().escape(),
     sanitizeBody('portfolio_company').trim().escape(),
     sanitizeBody('portfolio_investment_date').toDate(),
     sanitizeBody('executive_start_date').toDate(),
@@ -192,7 +192,7 @@ exports.person_update_post = [
         // Create Person object with escaped and trimmed data (and the old id!)
         var person = new Person(
             {
-                first_name: req.body.first_name,
+                full_name: req.body.full_name,
                 portfolio_company: req.body.portfolio_company,
                 portfolio_investment_date: req.body.portfolio_investment_date,
                 executive_start_date: req.body.executive_start_date,

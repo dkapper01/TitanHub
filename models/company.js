@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 var CompanySchema = new Schema({
     title: {type: String, required: true},
-    person: { type: Schema.ObjectId, ref: 'Person', required: true },
+    person: { type: Schema.ObjectId, ref: 'Person' },
     summary: {type: String, required: true},
     isbn: {type: String, required: true},
     firm: [{ type: Schema.ObjectId, ref: 'Firm' }]

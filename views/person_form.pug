@@ -5,8 +5,8 @@ block content
 
   form(class='form-style default')(method='POST' action='')
     div.form-group
-      label(for='first_name') Full Executive Name:
-      input#first_name.form-control(type='text', placeholder='' name='first_name' required='true' value=(undefined===person ? '' : person.first_name) )
+      label(for='full_name') Full Executive Name:
+      input#full_name.form-control(type='text', placeholder='' name='full_name' required='true' value=(undefined===person ? '' : person.full_name) )
       label(for='portfolio_company') Portfolio Company Name:
       input#portfolio_company.form-control(type='text', placeholder='' name='portfolio_company' required='true' value=(undefined===person ? '' : person.portfolio_company))
     div.form-group

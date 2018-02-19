@@ -3,10 +3,10 @@ extends layout
 block content
   h1  #{company.title}
   
-  p #[strong Person:] 
-    //a(href=company.person.url) #{company.person.name}
-  //p #[strong Summary:] #{company.summary}
-  //p #[strong ISBN:] #{company.isbn}
+  p #[strong Person:]
+  //a(href=company.person.full_name.url) #{company.person.name}
+  p #[strong Summary:] #{company.summary}
+  p #[strong ISBN:] #{company.isbn}
   p #[strong Firm:] 
     each val in company.firm
       a(href=val.url) #{val.name}
