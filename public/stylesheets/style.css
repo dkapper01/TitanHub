@@ -8,17 +8,20 @@
 .form-style {
     background-color: whitesmoke;
     padding: 10px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
     border: 1px solid lightgray;
+    padding: 25px;
+    margin-top: 25px;
+    margin-right: 350px;
 }
-/*.one {*/
-    /*background-color: #377bb5;*/
-/*}*/
+.table-margin {
+    margin-top: 25px;
+}
 
 .pushing-over {
-    margin-left: 235px;
+    margin-left: 225px;
 }
 
 /*
