@@ -2,12 +2,33 @@ extends layout
 
 block content
   h1= title
-  
-  ul
-  each person in person_list
-    li 
-      a(href=person.url) #{person.name} 
-      //| (#{person.lifespan})
+  .table-responsive
+    table.table.table-striped.table-dark
+      thead
+        tr
+          th #
+          th Company
+          th Executivies
+          th TH URL
+          th Leadership URL
+      tbody
+        each person in person_list
+          - var count = 0
+          tr
+            td #{count++}
+            td
+              a(href=person.url) #{person.name}
+            td 2
+            td 3
+            td 4
+        else
+            td There are no Executives
 
-  else
-    li There are no persons.
+  //ul
+  //each person in person_list
+  //  li
+  //    a(href=person.url) #{person.name}
+  //    //| (#{person.lifespan})
+  //
+  //else
+  //  li There are no persons.

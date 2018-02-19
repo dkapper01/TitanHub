@@ -13,27 +13,15 @@ block content
                     th Leadership URL
             tbody
                 each val in list_firms
-                    var num = 0
-                    num = num + 1
+                    - var count = 0
                     tr
-                        td
-                            p num
+                        td #{count++}
                         td
                             a(href=val.url) #{val.name}
                         td 2
                         td 3
                         td 4
-                tr
-                    td 1,002
-                    td amet
-                    td consectetur
-                    td adipiscing
-                    td elit
-                tr
-                    td 1,003
-                    td Integer
-                    td nec
-                    td odio
+
 
 
 

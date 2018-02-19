@@ -2,12 +2,34 @@ extends layout
 
 block content
   h1=title
-  
-  ul
-  each company in company_list
-    li 
-      a(href=company.url) #{company.title} 
-      //| (#{company.person.name})
+  .table-responsive
+    table.table.table-striped.table-dark
+      thead
+        tr
+          th #
+          th Company
+          th Executivies
+          th TH URL
+          th Leadership URL
+      tbody
+        each company in company_list
+          - var count = 0
+          tr
+            td #{count++}
+            td
+              a(href=company.url) #{company.title}
+            td 2
+            td 3
+            td 4
+        else
+          li There are no companys.
 
-  else
-    li There are no companys.
+
+  //ul
+  //each company in company_list
+  //  li
+  //    a(href=company.url) #{company.title}
+  //    //| (#{company.person.name})
+  //
+  //else
+  //  li There are no companys.
