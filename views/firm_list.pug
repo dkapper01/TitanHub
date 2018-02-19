@@ -1,12 +1,39 @@
 extends layout
 
 block content
-  h1= title
-  
-  ul
-  each val in list_firms
-    li 
-      a(href=val.url) #{val.name}
+    h5=title
+    .table-responsive
+        table.table.table-striped.table-dark
+            thead
+                tr
+                    th #
+                    th Company
+                    th Executivies
+                    th TH URL
+                    th Leadership URL
+            tbody
+                each val in list_firms
+                    var num = 0
+                    num = num + 1
+                    tr
+                        td
+                            p num
+                        td
+                            a(href=val.url) #{val.name}
+                        td 2
+                        td 3
+                        td 4
+                tr
+                    td 1,002
+                    td amet
+                    td consectetur
+                    td adipiscing
+                    td elit
+                tr
+                    td 1,003
+                    td Integer
+                    td nec
+                    td odio
 
-  else
-    li There are no firm.
+
+
