@@ -12,13 +12,17 @@ block content
     each company in firm_companys
       dt 
         a(href=company.url) #{company.title}
-      dd #{company.summary}
+      //dd #{company.summary}
 
     else
       p This firm has no companys.
       
   hr
   p
-    a(href=firm.url+'/delete') Delete firm
-  p
-    a(href=firm.url+'/update') Update firm
+    //wrong way to add Company!!!! Check the ones below
+    a(class='btn btn-success btn-spacing')(href='/catalog/company/create/') Add Company
+
+    a(class='btn btn-warning btn-spacing')(href=firm.url+'/update') Update firm
+
+    a(class='btn btn-danger')(href=firm.url+'/delete') Delete firm
+

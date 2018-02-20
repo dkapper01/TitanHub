@@ -1,12 +1,12 @@
 extends layout
 
 block content
-  h1  #{company.title}
+  h1 Company: #{company.title}
   
   p #[strong Person:]
   //a(href=company.person.full_name.url) #{company.person.name}
-  p #[strong Summary:] #{company.summary}
-  p #[strong ISBN:] #{company.isbn}
+  //p #[strong Summary:] #{company.summary}
+  //p #[strong ISBN:] #{company.isbn}
   p #[strong Firm:] 
     each val in company.firm
       a(href=val.url) #{val.name}
@@ -34,6 +34,9 @@ block content
       
   hr
   p
-    a(href=company.url+'/delete') Delete Company
-  p
-    a(href=company.url+'/update') Update Company
+    //wrong way to add executives!!!! Check the ones below
+    a(class='btn btn-success btn-spacing')(href='/catalog/person/create') Add Executive
+
+    a(class='btn btn-warning btn-spacing')(href=company.url+'/update') Update Company
+
+    a(class='btn btn-danger')(href=company.url+'/delete') Delete Company

@@ -5,6 +5,9 @@
 .header-in-center {
     text-align: center;
 }
+.btn-spacing {
+    margin-right: 5px;
+}
 .form-style {
     background-color: whitesmoke;
     padding: 10px;
