@@ -42,7 +42,6 @@ exports.company_list = function(req, res, next) {
       // Successful, so render
       res.render('company_list', { title: 'Company List', company_list:  list_companys});
     });
-
 };
 
 // Display detail page for a specific company.

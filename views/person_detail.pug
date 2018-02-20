@@ -20,6 +20,10 @@ block content
       
   hr
   p
-    a(href=person.url+'/delete') Delete person
-  p
-    a(href=person.url+'/update') Update person
+    // wrong way to add per
+    //a(class='btn btn-success btn-spacing')(href=person.url + '/update') Update person
+
+    a(class='btn btn-warning btn-spacing')(href=person.url + '/update') Update person
+
+    a(class='btn btn-danger btn-spacing')(href=person.url+'/delete') Delete person
+
