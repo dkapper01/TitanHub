@@ -1,7 +1,12 @@
-/*.active {*/
-    /*background-color: #377bb5;*/
-    /*text-c*/
-/*}*/
+a {
+    color: #217dbb;
+    /*hover: #3498db;*/
+
+/*!* 217dbb 3498db *!*/
+}
+a:hover {
+    color: #3498db;
+}
 .header-in-center {
     text-align: center;
 }
@@ -92,7 +97,7 @@ body {
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
     color: #fff;
-    background-color: #428bca;
+    background-color: #b4bcc2;
 }
 
 

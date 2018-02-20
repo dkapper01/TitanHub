@@ -13,9 +13,9 @@ block content
           th Leadership URL
       tbody
         each company in company_list
-          - var count = 0
+          - var n = 0
           tr
-            td #{count++}
+            td #{n++}
             td
               a(href=company.url) #{company.title}
             td 2
