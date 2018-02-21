@@ -12,10 +12,10 @@ block content
           th TH URL
           th Leadership URL
       tbody
+        - var count = 0
         each person in person_list
-          - var count = 0
           tr
-            td #{count++}
+            td #{++count}
             td
               a(href=person.url) #{person.name}
             td 2
