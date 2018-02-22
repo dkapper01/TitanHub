@@ -3,7 +3,10 @@ extends layout
 block content
 
   h1 #{person.full_name}
-  p #{person.lifespan}
+  p #[strong Company:]
+  p #[strong Executive Start Date:] #{person.start_date}
+  p #[strong Bloomberg URL:] #{person.bloomberg}
+  p #[strong Linkedin URL:] #{person.linkedin}
   
   div(style='margin-left:20px;margin-top:20px')
 
@@ -16,12 +19,10 @@ block content
       dd #{company.summary}
 
     else
-      //p This person has no companys.
+      p This person has no companys.
       
   hr
   p
-    // wrong way to add per
-    //a(class='btn btn-success btn-spacing')(href=person.url + '/update') Update person
 
     a(class='btn btn-warning btn-spacing')(href=person.url + '/update') Update person
 

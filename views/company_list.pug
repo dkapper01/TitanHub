@@ -1,36 +1,19 @@
 extends layout
 
 block content
-  //h1=title
-  .table-responsive
-    table.table.table-striped.table-margin.table-bordered.table-hover
-      thead
-        tr
-          th #
-          th Company
-          th Executivies
-          th TH URL
-          th Leadership URL
-      tbody
-        - var count = 0
-        each company in company_list
-          tr
-            td #{++count}
-            td
-              a(href=company.url) #{company.title}
-            td 2
-            td 3
-            td
-              a(href=company.url) #{company.leadership_url}
-        else
-          li There are no companys.
-
-
-  //ul
-  //each company in company_list
-  //  li
-  //    a(href=company.url) #{company.title}
-  //    //| (#{company.person.name})
-  //
-  //else
-  //  li There are no companys.
+    //h5=title
+    .table-responsive
+        table.table.table-striped.table-hover.table-bordered.table-margin
+            thead
+                tr
+                th #
+                th Company
+                th Executives
+            tbody
+                - var count = 0
+                each val in company_list
+                    tr
+                        td #{++count}
+                        td
+                            a(href=val.url) #{val.title}
+                        td

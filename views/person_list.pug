@@ -8,9 +8,9 @@ block content
         tr
           th #
           th Executive Name
-          th Company
-          th Linkedin URL
-          th Leadership URL
+          //th Company
+          //th Linkedin URL
+          //th Leadership URL
       tbody
         - var count = 0
         each person in person_list
@@ -18,9 +18,6 @@ block content
             td #{++count}
             td
               a(href=person.url) #{person.full_name}
-            td
-            td #{person.linkedin}
-            td #{person.bloomberg}
         else
             td There are no Executives
 
