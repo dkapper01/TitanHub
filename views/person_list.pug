@@ -18,7 +18,8 @@ block content
             td #{++count}
             td
               a(href=person.url) #{person.name}
-            td 2
+            td
+              a(href=person.url) #{person.full_name}
             td 3
             td 4
         else

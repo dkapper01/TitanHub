@@ -20,7 +20,8 @@ block content
               a(href=company.url) #{company.title}
             td 2
             td 3
-            td 4
+            td
+              a(href=company.url) #{company.leadership_url}
         else
           li There are no companys.
 

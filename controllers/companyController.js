@@ -102,7 +102,7 @@ exports.company_create_post = [
     // Validate fields.
     body('title', 'Title must not be empty.').isLength({ min: 1 }).trim(),
     // body('person', 'Person must not be empty.').isLength({ min: 1 }).trim(),
-    body('summary', 'Summary must not be empty.').isLength({ min: 1 }).trim(),
+    body('leadership_url', 'Leadership_url must not be empty.').isLength({ min: 1 }).trim(),
     body('isbn', 'ISBN must not be empty').isLength({ min: 1 }).trim(),
   
     // Sanitize fields.
@@ -119,7 +119,7 @@ exports.company_create_post = [
         var company = new Company(
           { title: req.body.title,
             person: req.body.person,
-            summary: req.body.summary,
+            leadership_url: req.body.leadership_url,
             isbn: req.body.isbn,
             firm: req.body.firm
            });
@@ -257,13 +257,13 @@ exports.company_update_post = [
     // Validate fields.
     body('title', 'Title must not be empty.').isLength({ min: 1 }).trim(),
     // body('person', 'Person must not be empty.').isLength({ min: 1 }).trim(),
-    body('summary', 'Summary must not be empty.').isLength({ min: 1 }).trim(),
+    body('leadership_url', 'Leadership_url must not be empty.').isLength({ min: 1 }).trim(),
     body('isbn', 'ISBN must not be empty').isLength({ min: 1 }).trim(),
 
     // Sanitize fields.
     sanitizeBody('title').trim().escape(),
     sanitizeBody('person').trim().escape(),
-    sanitizeBody('summary').trim().escape(),
+    sanitizeBody('leadership_url').trim().escape(),
     sanitizeBody('isbn').trim().escape(),
     sanitizeBody('firm.*').trim().escape(),
 
@@ -277,7 +277,7 @@ exports.company_update_post = [
         var company = new Company(
           { title: req.body.title,
             person: req.body.person,
-            summary: req.body.summary,
+            leadership_url: req.body.leadership_url,
             isbn: req.body.isbn,
             firm: (typeof req.body.firm==='undefined') ? [] : req.body.firm,
             _id:req.params.id // This is required, or a new ID will be assigned!
