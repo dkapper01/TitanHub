@@ -7,6 +7,9 @@ block content
     div.form-group
       label(for='title') Company Name:
       input#title.form-control(type='text', placeholder='' name='title' required='true' value=(undefined===company ? '' : company.title) )
+    div.form-group
+        label(for='portfolio_investment_date') Portfolio Investment Date:
+        input#portfolio_investment_date.form-control(type='date', name='portfolio_investment_date' value=(undefined === person ? '' : person.portfolio_investment_date_yyyy_mm_dd) )
     //div.form-group
     //  label(for='person') Firm:
     //  select#person.form-control(type='select', placeholder='Select Firm' name='firm' required='true' )
@@ -17,10 +20,10 @@ block content
     //        option(value=person._id) #{person.name}
     div.form-group
       label(for='leadership_url') Leadership URL:
-      input#leadership_url.form-control(type='text', placeholder='' name='leadership_url' value=(undefined===company ? '' : company.leadership_url) )
+      input#leadership_url.form-control(type='url', placeholder='' name='leadership_url' value=(undefined===company ? '' : company.leadership_url) )
     div.form-group
       label(for='isbn') TitanHouse URL:
-      input#isbn.form-control(type='text', placeholder='' name='isbn' value=(undefined===company ? '' : company.isbn) required='true')
+      input#isbn.form-control(type='url', placeholder='' name='isbn' value=(undefined===company ? '' : company.isbn) required='true')
     div.form-group
       label Firm:
       div

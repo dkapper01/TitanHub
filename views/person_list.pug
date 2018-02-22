@@ -9,7 +9,7 @@ block content
           th #
           th Executive Name
           th Company
-          th TH URL
+          th Linkedin URL
           th Leadership URL
       tbody
         - var count = 0
@@ -17,11 +17,10 @@ block content
           tr
             td #{++count}
             td
-              a(href=person.url) #{person.name}
-            td
               a(href=person.url) #{person.full_name}
-            td 3
-            td 4
+            td
+            td #{person.linkedin}
+            td #{person.bloomberg}
         else
             td There are no Executives
 

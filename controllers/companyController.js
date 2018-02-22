@@ -118,6 +118,7 @@ exports.company_create_post = [
         // Create a Company object with escaped and trimmed data.
         var company = new Company(
           { title: req.body.title,
+            portfolio_investment_date: req.body.portfolio_investment_date,
             person: req.body.person,
             leadership_url: req.body.leadership_url,
             isbn: req.body.isbn,
@@ -258,10 +259,12 @@ exports.company_update_post = [
     body('title', 'Title must not be empty.').isLength({ min: 1 }).trim(),
     // body('person', 'Person must not be empty.').isLength({ min: 1 }).trim(),
     body('leadership_url', 'Leadership_url must not be empty.').isLength({ min: 1 }).trim(),
+    body('portfolio_investment_date', 'portfolio_investment_date must be empty.').isLength({ min: 1 }).trim(),
     body('isbn', 'ISBN must not be empty').isLength({ min: 1 }).trim(),
 
     // Sanitize fields.
     sanitizeBody('title').trim().escape(),
+    sanitizeBody('portfolio_investment_date').toDate(),
     sanitizeBody('person').trim().escape(),
     sanitizeBody('leadership_url').trim().escape(),
     sanitizeBody('isbn').trim().escape(),
@@ -276,6 +279,7 @@ exports.company_update_post = [
         // Create a Company object with escaped/trimmed data and old id.
         var company = new Company(
           { title: req.body.title,
+            portfolio_investment_date: req.body.portfolio_investment_date,
             person: req.body.person,
             leadership_url: req.body.leadership_url,
             isbn: req.body.isbn,

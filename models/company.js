@@ -14,6 +14,7 @@ var Schema = mongoose.Schema;
 
 var CompanySchema = new Schema({
     title: {type: String, required: true},
+    portfolio_investment_date: { type: Date },
     person: { type: Schema.ObjectId, ref: 'Person' },
     leadership_url: {type: String, required: true},
     isbn: {type: String, required: true},

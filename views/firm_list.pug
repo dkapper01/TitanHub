@@ -6,22 +6,21 @@ block content
         table.table.table-striped.table-hover.table-bordered.table-margin
             thead
                 tr
-                    th #
-                    th Company
-                    th Executivies
-                    th TH URL
-                    th Leadership URL
+                th #
+                th PE Firm
+                th Companies
+                th
+                th
             tbody
                 - var count = 0
                 each val in list_firms
-
                     tr
                         td #{++count}
                         td
                             a(href=val.url) #{val.name}
-                        td 2
-                        td 3
-                        td 4
+                        td
+                        td
+                        td
 
 
 

@@ -9,7 +9,7 @@ const { sanitizeBody } = require('express-validator/filter');
 exports.person_list = function (req, res, next) {
 
     Person.find()
-        .sort([['portfolio_company', 'ascending']])
+        .sort([['linkedin', 'ascending']])
         .exec(function (err, list_persons) {
             if (err) { return next(err); }
             // Successful, so render.
@@ -54,14 +54,16 @@ exports.person_create_post = [
     // Validate fields.
     body('full_name').isLength({ min: 5 }).trim().withMessage('First name must be specified.'),
         // .isAlphanumeric().withMessage('First name has non-alphanumeric characters.'),
-    body('portfolio_company').isLength({ min: 1 }).trim().withMessage('Family name must be specified.'),
-        // .isAlphanumeric().withMessage('Family name has non-alphanumeric characters.'),
-    body('portfolio_investment_date', 'Invalid date of birth').optional({ checkFalsy: true }).isISO8601(),
-    body('executive_start_date', 'Invalid date of death').optional({ checkFalsy: true }).isISO8601(),
+    // body('linkedin').isLength({ min: 1 }).trim().withMessage('Family name must be specified.'),
+    //     // .isAlphanumeric().withMessage('Family name has non-alphanumeric characters.'),
+    // body('bloomberg').isLength({ min: 1 }).trim().withMessage('')
+    // body('portfolio_investment_date', 'Invalid date of birth').optional({ checkFalsy: true }).isISO8601(),
+    // body('executive_start_date', 'Invalid date of death').optional({ checkFalsy: true }).isISO8601(),
 
     // Sanitize fields.
     sanitizeBody('full_name').trim().escape(),
-    sanitizeBody('portfolio_company').trim().escape(),
+    sanitizeBody('linkedin').trim().escape(),
+    sanitizeBody('bloomberg').trim().escape(),
     sanitizeBody('portfolio_investment_date').toDate(),
     sanitizeBody('executive_start_date').toDate(),
 
@@ -83,7 +85,8 @@ exports.person_create_post = [
             var person = new Person(
                 {
                     full_name: req.body.full_name,
-                    portfolio_company: req.body.portfolio_company,
+                    linkedin: req.body.linkedin,
+                    bloomberg: req.body.bloomberg,
                     portfolio_investment_date: req.body.portfolio_investment_date,
                     executive_start_date: req.body.executive_start_date
                 });
@@ -170,16 +173,18 @@ exports.person_update_get = function (req, res, next) {
 exports.person_update_post = [
 
     // Validate fields.
-    body('full_name').isLength({ min: 1 }).trim().withMessage('First name must be specified.'),
+    body('full_name').isLength({ min: 1 }).trim().withMessage('Full name must be specified.'),
         // .isAlphanumeric().withMessage('First name has non-alphanumeric characters.'),
-    body('portfolio_company').isLength({ min: 1 }).trim().withMessage('Family name must be specified.'),
+    body('linkedin').isLength({ min: 1 }).trim().withMessage('Linkedin must be specified.'),
         // .isAlphanumeric().withMessage('Family name has non-alphanumeric characters.'),
-    body('portfolio_investment_date', 'Invalid date of birth').optional({ checkFalsy: true }).isISO8601(),
+    body('bloomberg').isLength({ min: 1 }).trim().withMessage('Did not validate bloomberg url'),
+    body('portfolio_investment_date', 'portfolio_investment_date must be specified').optional({ checkFalsy: true }).isISO8601(),
     body('executive_start_date', 'Invalid date of death').optional({ checkFalsy: true }).isISO8601(),
 
     // Sanitize fields.
     sanitizeBody('full_name').trim().escape(),
-    sanitizeBody('portfolio_company').trim().escape(),
+    sanitizeBody('linkedin').trim().escape(),
+    sanitizeBody('bloomberg').trim().escape(),
     sanitizeBody('portfolio_investment_date').toDate(),
     sanitizeBody('executive_start_date').toDate(),
 
@@ -193,7 +198,8 @@ exports.person_update_post = [
         var person = new Person(
             {
                 full_name: req.body.full_name,
-                portfolio_company: req.body.portfolio_company,
+                linkedin: req.body.linkedin,
+                bloomberg: req.body.bloomberg,
                 portfolio_investment_date: req.body.portfolio_investment_date,
                 executive_start_date: req.body.executive_start_date,
                 _id: req.params.id

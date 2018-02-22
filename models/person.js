@@ -6,7 +6,8 @@ var Schema = mongoose.Schema;
 var PersonSchema = new Schema(
     {
     full_name: {type: String, required: true, max: 100},
-    portfolio_company: {type: String, required: true, max: 100},
+    linkedin: {type: String, max: 1000},
+    bloomberg: {type: String, max: 1000 },
     portfolio_investment_date: { type: Date },
     // date_of_death: { type: Date },
     }
@@ -16,7 +17,7 @@ var PersonSchema = new Schema(
 PersonSchema
 .virtual('name')
 .get(function () {
-  return this.portfolio_company +', '+this.full_name;
+  return this.linkedin +', '+this.full_name;
 });
 
 // Virtual for this person instance URL.
