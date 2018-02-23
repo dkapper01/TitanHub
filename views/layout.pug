@@ -21,15 +21,15 @@ html
                         span.icon-bar
                         span.icon-bar
                         span.icon-bar
-                    a.navbar-brand(href='/catalog')
+                    a.navbar-brand(href='/data')
                 #navbar.navbar-collapse.collapse
                     ul.nav.navbar-nav.navbar-right.bg-primary
                         li
-                            a(class='active')(href='/catalog') Dashboard
+                            //a(class='active')(href='/data') Dashboard
                         //li
                         //    a(href='#') Settings
                         li
-                            a(href='#') Profile
+                            //a(href='#') Profile
                         //li
                         //    a(href='#') Help
                     form.navbar-form.navbar-right
@@ -39,22 +39,22 @@ html
                 .col-sm-3.col-md-2.sidebar
                     ul.nav.nav-sidebar
                         li(class=title=='Firm List'?'active':undefined)
-                            a(href='/catalog/firms/')
+                            a(href='/data/firms/')
                                 | All Firms
                                 span.sr-only (current)
                         li(class=title=='Company List'?'active':undefined)
-                            a(href='/catalog/companys/') All Companies
+                            a(href='/data/companys/') All Companies
                         li(class=title=='List of Executives'?'active':undefined)
-                            a(href='/catalog/persons') All Executives
+                            a(href='/data/persons') All Executives
                         //li
                             //a(href='#') Export
                     ul.nav.nav-sidebar
                         li(class=title=='Create Firm'?'active':undefined)
-                            a(href='/catalog/firm/create') New Firm
+                            a(href='/data/firm/create') New Firm
                         li(class=title=='Create Company'?'active':undefined)
-                            a(href='/catalog/company/create/') New Company
+                            a(href='/data/company/create/') New Company
                         li(class=title=='Add New Executive'?'active':undefined)
-                            a(href='/catalog/person/create') New Executive
+                            a(href='/data/person/create') New Executive
 
 
         div(class='col-md-9 pushing-over')

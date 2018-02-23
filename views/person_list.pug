@@ -1,31 +1,17 @@
 extends layout
 
 block content
-  //h1= title
-  .table-responsive
-    table.table.table-striped.table-bordered.table-hover.table-margin
-      thead
-        tr
-          th #
-          th Executive Name
-          //th Company
-          //th Linkedin URL
-          //th Leadership URL
-      tbody
-        - var count = 0
-        each person in person_list
-          tr
-            td #{++count}
-            td
-              a(href=person.url) #{person.full_name}
-        else
-            td There are no Executives
-
-  //ul
-  //each person in person_list
-  //  li
-  //    a(href=person.url) #{person.name}
-  //    //| (#{person.lifespan})
-  //
-  //else
-  //  li There are no persons.
+    .table-responsive
+        table.table.table-striped.table-hover.table-bordered.table-margin
+            thead
+                tr
+                    th #
+                    th Company
+            tbody
+                - var count = 0
+                each val in person_list
+                    tr
+                        td(class='count_width') #{++count}
+                        td(class='main_width')
+                            a(href=val.url) #{val.full_name}
+                        td

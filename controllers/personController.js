@@ -114,7 +114,7 @@ exports.person_delete_get = function (req, res, next) {
     }, function (err, results) {
         if (err) { return next(err); }
         if (results.person == null) { // No results.
-            res.redirect('/catalog/persons');
+            res.redirect('/data/persons');
         }
         // Successful, so render.
         res.render('person_delete', { title: 'Delete Executive', person: results.person, person_companys: results.persons_companys });
@@ -145,7 +145,7 @@ exports.person_delete_post = function (req, res, next) {
             Person.findByIdAndRemove(req.body.personid, function deletePerson(err) {
                 if (err) { return next(err); }
                 // Success - go to person list.
-                res.redirect('/catalog/persons')
+                res.redirect('/data/persons')
             })
 
         }

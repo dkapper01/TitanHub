@@ -11,7 +11,7 @@ var company_instance_controller = require('../controllers/companyinstanceControl
 
 /// BOOK ROUTES ///
 
-// GET catalog home page.
+// GET data home page.
 router.get('/', company_controller.index);  
 
 // GET request for creating a Company. NOTE This must come before routes that display Company (uses id).

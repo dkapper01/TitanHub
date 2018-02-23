@@ -172,7 +172,7 @@ exports.company_delete_get = function(req, res, next) {
     }, function(err, results) {
         if (err) { return next(err); }
         if (results.company==null) { // No results.
-            res.redirect('/catalog/companys');
+            res.redirect('/data/companys');
         }
         // Successful, so render.
         res.render('company_delete', { title: 'Delete Company', company: results.company } );
@@ -197,7 +197,7 @@ exports.company_delete_post = function(req, res, next) {
             Company.findByIdAndRemove(req.body.id, function deleteCompany(err) {
                 if (err) { return next(err); }
                 // Success - got to companys list.
-                res.redirect('/catalog/companys');
+                res.redirect('/data/companys');
             });
 
         }

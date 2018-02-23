@@ -107,7 +107,7 @@ exports.companyinstance_delete_get = function(req, res, next) {
     .exec(function (err, companyinstance) {
         if (err) { return next(err); }
         if (companyinstance==null) { // No results.
-            res.redirect('/catalog/companyinstances');
+            res.redirect('/data/companyinstances');
         }
         // Successful, so render.
         res.render('companyinstance_delete', { title: 'Delete CompanyInstance', companyinstance:  companyinstance});
@@ -122,7 +122,7 @@ exports.companyinstance_delete_post = function(req, res, next) {
     CompanyInstance.findByIdAndRemove(req.body.id, function deleteCompanyInstance(err) {
         if (err) { return next(err); }
         // Success, so redirect to list of CompanyInstance items.
-        res.redirect('/catalog/companyinstances');
+        res.redirect('/data/companyinstances');
         });
 
 };

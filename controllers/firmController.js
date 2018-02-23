@@ -116,7 +116,7 @@ exports.firm_delete_get = function(req, res, next) {
     }, function(err, results) {
         if (err) { return next(err); }
         if (results.firm==null) { // No results.
-            res.redirect('/catalog/firms');
+            res.redirect('/data/firms');
         }
         // Successful, so render.
         res.render('firm_delete', { title: 'Delete Firm', firm: results.firm, firm_companys: results.firm_companys } );
@@ -147,7 +147,7 @@ exports.firm_delete_post = function(req, res, next) {
             Firm.findByIdAndRemove(req.body.id, function deleteFirm(err) {
                 if (err) { return next(err); }
                 // Success - go to firms list.
-                res.redirect('/catalog/firms');
+                res.redirect('/data/firms');
             });
 
         }
@@ -210,3 +210,8 @@ exports.firm_update_post = [
         }
     }
 ];
+
+// To create a company associated with the firm
+exports.firm_create_company = [
+
+]

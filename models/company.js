@@ -25,7 +25,7 @@ var CompanySchema = new Schema({
 CompanySchema
 .virtual('url')
 .get(function () {
-  return '/catalog/company/'+this._id;
+  return '/data/company/'+this._id;
 });
 
 // Export model.

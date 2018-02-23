@@ -14,7 +14,7 @@ var CompanyInstanceSchema = new Schema({
 CompanyInstanceSchema
 .virtual('url')
 .get(function () {
-  return '/catalog/companyinstance/'+this._id;
+  return '/data/companyinstance/'+this._id;
 });
 
 

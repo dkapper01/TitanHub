@@ -1,19 +1,19 @@
 extends layout
 
 block content
-    //h5=title
     .table-responsive
         table.table.table-striped.table-hover.table-bordered.table-margin
             thead
                 tr
-                th #
-                th Company
-                th Executives
+                    th #
+                    th Company
+                    th Executives
             tbody
                 - var count = 0
                 each val in company_list
                     tr
-                        td #{++count}
-                        td
+                        td(class='count_width') #{++count}
+                        td(class='main_width')
                             a(href=val.url) #{val.title}
                         td
+

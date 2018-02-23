@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var catalog = require('./routes/catalog'); // Import routes for "catalog" area of site
+var data = require('./routes/data'); // Import routes for "data" area of site
 var compression = require('compression');
 var helmet = require('helmet');
 
@@ -18,7 +18,7 @@ app.use(helmet());
 
 // Set up mongoose connection
 var mongoose = require('mongoose');
-var dev_db_url = 'mongodb://cooluser:coolpassword@ds119748.mlab.com:19748/local_library'
+var dev_db_url = 'mongodb://daniel:titanhouse@ds147118.mlab.com:47118/titanhouse'
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
@@ -43,7 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/catalog', catalog); // Add catalog routes to middleware chain.
+app.use('/data', data); // Add data routes to middleware chain.
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {

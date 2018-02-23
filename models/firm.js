@@ -10,7 +10,7 @@ var FirmSchema = new Schema({
 FirmSchema
 .virtual('url')
 .get(function () {
-  return '/catalog/firm/'+this._id;
+  return '/data/firm/'+this._id;
 });
 
 // Export model.

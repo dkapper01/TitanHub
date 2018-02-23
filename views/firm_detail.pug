@@ -1,21 +1,24 @@
 extends layout
 
 block content
-
   h1 #{firm.name}
-  
-  div(style='margin-left:20px;margin-top:20px')
 
-    h4 Portfolio Companies
-    
-    dl
-    each company in firm_companys
-      dt 
-        a(href=company.url) #{company.title}
-      //dd #{company.summary}
+  .table-responsive
+      table.table.table-striped.table-hover.table-bordered.table-margin
+          thead
+              tr
+                  th #
+                  th Company
+                  th
+          tbody
+              - var count = 0
+              each company in firm_companys
+                  tr
+                      td(class='count_width') #{++count}
+                      td(class='main_width')
+                          a(href=company.url) #{company.title}
+                      td
 
-    else
-      p This firm has no companys.
       
   hr
   p

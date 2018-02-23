@@ -24,7 +24,7 @@ PersonSchema
 PersonSchema
 .virtual('url')
 .get(function () {
-  return '/catalog/person/'+this._id
+  return '/data/person/'+this._id
 });
 
 PersonSchema
