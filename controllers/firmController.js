@@ -211,7 +211,12 @@ exports.firm_update_post = [
     }
 ];
 
-// To create a company associated with the firm
-exports.firm_create_company = [
+// Display New Company form on GET.
+exports.firm_new_company_get = function(req, res) {
+    res.send('NOT IMPLEMENTED: Firm New Company  GET');
+};
 
-]
+// Handle New Company on POST.
+exports.firm_new_company_post = function(req, res) {
+    res.send('NOT IMPLEMENTED: Firm New Company POST');
+};

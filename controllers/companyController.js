@@ -1,7 +1,6 @@
 var Company = require('../models/company');
 var Person = require('../models/person');
 var Firm = require('../models/firm');
-var CompanyInstance = require('../models/companyinstance');
 
 const { body,validationResult } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
@@ -14,12 +13,6 @@ exports.index = function(req, res) {
         company_count: function(callback) {
             Company.count(callback);
         },
-        // company_instance_count: function(callback) {
-        //     CompanyInstance.count(callback);
-        // },
-        // company_instance_available_count: function(callback) {
-        //     CompanyInstance.count({status:'Available'},callback);
-        // },
         person_count: function(callback) {
             Person.count(callback);
         },
@@ -73,9 +66,9 @@ exports.company_create_get = function(req, res, next) {
 
     // Get all persons and firms, which we can use for adding to our company.
     async.parallel({
-        // persons: function(callback) {
-        //     Person.find(callback);
-        // },
+        persons: function(callback) {
+            Person.find(callback);
+        },
         firms: function(callback) {
             Firm.find(callback);
         },

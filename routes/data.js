@@ -6,7 +6,6 @@ var router = express.Router();
 var company_controller = require('../controllers/companyController'); 
 var person_controller = require('../controllers/personController');
 var firm_controller = require('../controllers/firmController');
-var company_instance_controller = require('../controllers/companyinstanceController');
 
 
 /// BOOK ROUTES ///
@@ -85,38 +84,16 @@ router.get('/firm/:id/update', firm_controller.firm_update_get);
 // POST request to update Firm.
 router.post('/firm/:id/update', firm_controller.firm_update_post);
 
+// GET request to Crate New Company
+router.get('/firm/:id/firm_new_company', firm_controller.firm_new_company_get);
+
+// POST request to Create New Company
+router.post('/firm/:id/firm_new_company', firm_controller.firm_new_company_post);
+
 // GET request for one Firm.
 router.get('/firm/:id', firm_controller.firm_detail);
 
 // GET request for list of all Firm.
 router.get('/firms', firm_controller.firm_list);
-
-
-/// BOOKINSTANCE ROUTES ///
-
-// GET request for creating a CompanyInstance. NOTE This must come before route that displays CompanyInstance (uses id).
-router.get('/companyinstance/create', company_instance_controller.companyinstance_create_get);
-
-// POST request for creating CompanyInstance.
-router.post('/companyinstance/create', company_instance_controller.companyinstance_create_post);
-
-// GET request to delete CompanyInstance.
-router.get('/companyinstance/:id/delete', company_instance_controller.companyinstance_delete_get);
-
-// POST request to delete CompanyInstance.
-router.post('/companyinstance/:id/delete', company_instance_controller.companyinstance_delete_post);
-
-// GET request to update CompanyInstance.
-router.get('/companyinstance/:id/update', company_instance_controller.companyinstance_update_get);
-
-// POST request to update CompanyInstance.
-router.post('/companyinstance/:id/update', company_instance_controller.companyinstance_update_post);
-
-// GET request for one CompanyInstance.
-router.get('/companyinstance/:id', company_instance_controller.companyinstance_detail);
-
-// GET request for list of all CompanyInstance.
-router.get('/companyinstances', company_instance_controller.companyinstance_list);
-
 
 module.exports = router;
