@@ -178,7 +178,6 @@ exports.person_update_post = [
     body('linkedin').isLength({ min: 1 }).trim().withMessage('Linkedin must be specified.'),
         // .isAlphanumeric().withMessage('Family name has non-alphanumeric characters.'),
     body('bloomberg').isLength({ min: 1 }).trim().withMessage('Did not validate bloomberg url'),
-    body('portfolio_investment_date', 'portfolio_investment_date must be specified').optional({ checkFalsy: true }).isISO8601(),
     body('executive_start_date', 'Invalid date of death').optional({ checkFalsy: true }).isISO8601(),
 
     // Sanitize fields.
