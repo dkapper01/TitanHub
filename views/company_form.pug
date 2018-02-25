@@ -24,13 +24,13 @@ block content
     div.form-group
       label(for='isbn') TitanHouse URL:
       input#isbn.form-control(type='url', placeholder='' name='isbn' value=(undefined===company ? '' : company.isbn) required='true')
-    div.form-group
-      label Firm:
-      div
-        for firm in firms
-          div(style='display: inline; padding-right:10px;')
-            input.checkbox-input(type='checkbox', name='firm', id=firm._id, value=firm._id, checked=firm.checked )
-            label(for=firm._id) #{firm.name}
+    //div.form-group
+    //  label Firm:
+    //  div
+    //    for firm in firms
+    //      div(style='display: inline; padding-right:10px;')
+    //        input.checkbox-input(type='checkbox', name='firm', id=firm._id, value=firm._id, checked=firm.checked )
+    //        label(for=firm._id) #{firm.name}
     button.btn.btn-primary(type='submit') Submit
 
   if errors 

@@ -3,20 +3,27 @@ extends layout
 block content
   h1 #{company.title}
 
-  p #[strong Firm: ]
-    each val in company.firm
-      a(href=val.url) #{val.name}
+  //p #[strong Firm: ]
+  //  each val in company.firm
+  //    a(href=val.url) #{val.name}
+  p #[strong Firm: ] #{company.firm}
   p #[strong Portfolio Investment Date:] #{company.portfolio_investment_date}
   p #[strong Leadership URL:] #{company.leadership_url}
   p #[strong TitanHouse URL:] #{company}
   p #[strong Person:]
+  ul
+    each person in company.person
+      li
+        a(href=person.url) #{person.full_name}
+    else
+      li There are no Executive
   //a(href=company.person.full_name.url) #{company.person.name}
   //p #[strong ISBN:] #{company.isbn}
 
   hr
   p
     //wrong way to add executives!!!! Check the ones below
-    a(class='btn btn-success btn-spacing')(href='/catalog/person/create') Add Executive
+    a(class='btn btn-success btn-spacing')(href=company.url+'/company_new_person') Add Executive
 
     a(class='btn btn-warning btn-spacing')(href=company.url+'/update') Update Company
 

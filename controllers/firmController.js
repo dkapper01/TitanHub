@@ -213,10 +213,10 @@ exports.firm_update_post = [
 
 // Display New Company form on GET.
 exports.firm_new_company_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Firm New Company  GET');
+    res.render('company_form', { title: 'Firm New Company'});
 };
 
 // Handle New Company on POST.
 exports.firm_new_company_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Firm New Company POST');
+    res.render('company_detail');
 };

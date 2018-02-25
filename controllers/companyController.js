@@ -56,7 +56,7 @@ exports.company_detail = function(req, res, next) {
             return next(err);
         }
         // Successful, so render.
-        res.render('company_detail', { title: 'Title', company:  results.company } );
+        res.render('company_detail', { title: 'Title', company: results.company } );
     });
 
 };
@@ -315,3 +315,10 @@ exports.company_update_post = [
     }
 ];
 
+exports.company_new_person_get = function(req, res, next) {
+    res.send('NOT IMPLEMENTED: BookInstance list');
+};
+
+exports.company_new_person_post = function(req, res, next) {
+    res.send('NOT IMPLEMENTED: BookInstance list');
+};
