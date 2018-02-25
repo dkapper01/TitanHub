@@ -37,13 +37,6 @@ router.get('/company/:id', company_controller.company_detail);
 // GET request for list of all Company.
 router.get('/companys', company_controller.company_list);
 
-// GET request for company new person
-router.get('/company/:id/company_new_person', company_controller.company_new_person_get);
-
-// Post request for company new perosn
-router.post('/company/:id/company_new_person', company_controller.company_new_person_post);
-
-
 /// AUTHOR ROUTES ///
 
 // GET request for creating Person. NOTE This must come before route for id (i.e. display person).
