@@ -1,5 +1,6 @@
 // const pg = require('pg')
 var mongoose = require('mongoose');
+var moment = require('moment'); // For date handling.
 
 // const client = new pg.Client({
 //     user: 'postgres',
@@ -15,10 +16,9 @@ var Schema = mongoose.Schema;
 var CompanySchema = new Schema({
     title: {type: String, required: true},
     portfolio_investment_date: { type: Date },
-    person: { type: Schema.ObjectId, ref: 'Person' },
     leadership_url: {type: String, required: true},
-    isbn: {type: String, required: true},
-    firm: [{ type: Schema.ObjectId, ref: 'Firm' }]
+    // person: { type: Schema.ObjectId, ref: 'Person' },
+    firmInCompany: [{ type: Schema.ObjectId, ref: 'Firm' }]
 });
 
 // Virtual for this company instance URL.

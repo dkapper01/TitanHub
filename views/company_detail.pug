@@ -3,9 +3,9 @@ extends layout
 block content
   h1 #{company.title}
 
-  //p #[strong Firm: ]
-  //  each val in company.firm
-  //    a(href=val.url) #{val.name}
+  p #[strong Firm: ]
+    each val in company.firm
+      a(href=val.url) #{val.name}
   p #[strong Firm: ] #{company.firm}
   p #[strong Portfolio Investment Date:] #{company.portfolio_investment_date}
   p #[strong Leadership URL:] #{company.leadership_url}

@@ -94,7 +94,7 @@ exports.company_create_post = [
 
     // Validate fields.
     body('title', 'Title must not be empty.').isLength({ min: 1 }).trim(),
-    body('person', 'Person must not be empty.').isLength({ min: 1 }).trim(),
+    // body('person', 'Person must not be empty.').isLength({ min: 1 }).trim(),
     body('leadership_url', 'Leadership_url must not be empty.').isLength({ min: 1 }).trim(),
 
     // Sanitize fields.
