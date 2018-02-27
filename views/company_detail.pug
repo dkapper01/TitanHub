@@ -3,21 +3,55 @@ extends layout
 block content
   h1 #{company.title}
 
-  p #[strong Firm: ]
-    each val in company.firm
-      a(href=val.url) #{val.name}
-  p #[strong Firm: ] #{company.firm}
-  p #[strong Portfolio Investment Date:] #{company.portfolio_investment_date}
-  p #[strong Leadership URL:] #{company.leadership_url}
-  p #[strong TitanHouse URL:] #{company}
-  p #[strong Person:]
-  //a(href=company.person.full_name.url) #{company.person.name}
-  //p #[strong ISBN:] #{company.isbn}
+  .container-fluid
 
+      p #[strong Firm: ]
+        each val in company.firm
+          a(href=val.url) #{val.name}
+      p #[strong Portfolio Investment Date:] #{company.portfolio_investment_date}
+      p #[strong Leadership URL:] #{company.leadership_url}
+      p #[strong TitanHouse URL:] #{company}
+      p #[strong Person:]
+      //a(href=company.person.full_name.url) #{company.person.name}
+      //p #[strong ISBN:] #{company.isbn}
+  //.table-responsive
+  //  table.table.table-striped.table-hover.table-bordered.table-margin
+  //      thead
+  //          tr
+  //              th #
+  //              th Executive
+  //              th
+  //      tbody
+  //          tr
+  //              td(class='count_width') 1
+  //              td(class='main_width')
+  //                  a(herf='/data/person/5a91d6c19aeda95f75c72508/') Satya Nadella
+  //
+  //              td
+  //          tr
+  //              td(class='count_width') 2
+  //              td(class='main_width')
+  //                  a(herf='/data/person/5a91d6c19aeda95f75c72508/') Tim Cook
+  //              td
+  //          tr
+  //              td(class='count_width') 3
+  //              td(class='main_width')
+  //                  a(herf='/data/person/5a91d6c19aeda95f75c72508/') Larry Page
+  //              td
+  //          tr
+  //              td(class='count_width') 4
+  //              td(class='main_width')
+  //                  a(herf='/data/person/5a91d6c19aeda95f75c72508/') Indra Nooyi
+  //              td
+  //          tr
+  //              td(class='count_width') 5
+  //              td(class='main_width')
+  //                  a(herf='/data/person/5a91d6c19aeda95f75c72508/') Eric Schmidt
+  //              td
   hr
   p
     //wrong way to add executives!!!! Check the ones below
-    a(class='btn btn-success btn-spacing')(href='/catalog/person/create') Add Executive
+    a(class='btn btn-success btn-spacing')(href='/data/person/create') Add Executive
 
     a(class='btn btn-warning btn-spacing')(href=company.url+'/update') Update Company
 

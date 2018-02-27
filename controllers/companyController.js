@@ -56,7 +56,7 @@ exports.company_detail = function(req, res, next) {
             return next(err);
         }
         // Successful, so render.
-        res.render('company_detail', { title: 'Title', company:  results.company } );
+        res.render('company_detail', { title: 'Title', company: results.company } );
     });
 
 };
@@ -82,21 +82,22 @@ exports.company_create_get = function(req, res, next) {
 // Handle company create on POST.
 exports.company_create_post = [
     // Convert the firm to an array.
-    // (req, res, next) => {
-    //     if(!(req.body.firm instanceof Array)){
-    //         if(typeof req.body.firm==='undefined')
-    //         req.body.firm=[];
-    //         else
-    //         req.body.firm=new Array(req.body.firm);
-    //     }
-    //     next();
-    // },
+    (req, res, next) => {
+        if(!(req.body.firm instanceof Array)){
+            if(typeof req.body.firm==='undefined')
+            req.body.firm=[];
+            else
+            req.body.firm=new Array(req.body.firm);
+        }
+        next();
+    },
 
     // Validate fields.
     body('title', 'Title must not be empty.').isLength({ min: 1 }).trim(),
     // body('person', 'Person must not be empty.').isLength({ min: 1 }).trim(),
     body('leadership_url', 'Leadership_url must not be empty.').isLength({ min: 1 }).trim(),
-
+    body('isbn', 'ISBN must not be empty').isLength({ min: 1 }).trim(),
+  
     // Sanitize fields.
     sanitizeBody('*').trim().escape(),
     sanitizeBody('firm.*').trim().escape(),
@@ -113,6 +114,7 @@ exports.company_create_post = [
             portfolio_investment_date: req.body.portfolio_investment_date,
             person: req.body.person,
             leadership_url: req.body.leadership_url,
+            isbn: req.body.isbn,
             firm: req.body.firm
            });
 
@@ -131,11 +133,11 @@ exports.company_create_post = [
                 if (err) { return next(err); }
 
                 // Mark our selected firms as checked.
-                // for (let i = 0; i < results.firms.length; i++) {
-                //     if (company.firm.indexOf(results.firms[i]._id) > -1) {
-                //         results.firms[i].checked='true';
-                //     }
-                // }
+                for (let i = 0; i < results.firms.length; i++) {
+                    if (company.firm.indexOf(results.firms[i]._id) > -1) {
+                        results.firms[i].checked='true';
+                    }
+                }
                 res.render('company_form', { title: 'Create Company',persons:results.persons, firms:results.firms, company: company, errors: errors.array() });
             });
             return;
